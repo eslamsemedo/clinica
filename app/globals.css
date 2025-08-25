@@ -1,26 +1,167 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-main: #006bb3;
+  --color-secondary: #ffd230;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.navLinks {
+  /* background-color: red; */
+  padding: 4px;
+  position: relative;
+  font-weight: 500;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+* {
+  scroll-behavior: smooth;
+  font-family: montserrat;
+}
+
+.navLinks::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #006bb3;
+  transition: all 0.5s;
+}
+
+.navLinks:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #006bb3;
+}
+
+@font-face {
+  font-family: montserrat;
+  src: url("../public/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: montserrat;
+  src: url("../public/Montserrat-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: montserrat;
+  src: url("../public/Montserrat-Bold.ttf");
+  font-weight: 700;
+}
+
+.homeCon {
+  background-image: url("../public/bgClin1.jpg");
+  min-height: 100vh;
+  background-size: cover;
+}
+@media (max-width: 768px) {
+  .homeCon {
+    background-image: url("../public/mobileImg.jpg");
   }
 }
+.arrow {
+  width: 24px;
+  height: 24px;
+  animation: rr 1.5s infinite;
+}
+@keyframes rr {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.aboutImgLeft {
+  border-radius: 100px 5px 100px 5px;
+}
+.aboutImgRight {
+  border-radius: 5px 100px 5px 100px;
+}
+.servicesCard {
+  cursor: pointer;
+  transition: all 0.5s;
+  position: relative;
+  &:hover {
+    transform: scale(1.05);
+    background-color: #006bb3;
+    color: #fff9f9;
+    font-weight: 400;
+  }
+}
+.servicesCard:hover .servicesOptions {
+  color: #ffd230;
+}
+.servicesCard::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0px;
+  width: 100%;
+  background-color: #006bb3;
+  transition: all 0.5s;
+}
+.servicesCard:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 10px;
+  width: 100%;
+  background-color: #ffd230d9;
+  transition: all 0.5s;
+}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* BlueSpace.css */
+
+.animated-button {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-button::before {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 120%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+.animated-button:hover::before {
+  left: 100%;
+}
+
+.animated-button:hover {
+  transform: scale(1.05);
+  background-color: #005899;
+}
+.testimonialBG {
+  /* background-image: url('../public/DSC_4314.jpg'); */
+  background-size: cover;
+  background-attachment: fixed;
+}
+.TeamSection {
+  /* background-image: url("../public/p5.jpg"); */
+  background-size: cover;
+  background-attachment: fixed;
+}
+.Contact {
+  /* background-image: url('../public/11948.jpg'); */
+  background-size: cover;
 }
